@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  # This is the 'Supplier Name' we will use in our code
+  - name: raw_shopify
+    description: "Raw operational and calendar tables synced into BigQuery."
+    # The physical location in the cloud
+    database: voyeur-voyeur-analytics-mvp
+    schema: raw_shopify_exports_voyeur_voyeur
+    
+    # The exact raw tables sitting in that schema
+    tables:
+      - name: raw_orders_table
+        description: "Raw transactional order records from Shopify."
+      - name: raw_inventory_table
+      - name: raw_products_table
+      - name: master_range_sheet
+        description: "Google Sheet containing master enrichment data and POs."
+      - name: dim_date
+      - name: raw_samplesale_table
