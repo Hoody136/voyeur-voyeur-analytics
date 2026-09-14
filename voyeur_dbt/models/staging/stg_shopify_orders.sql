@@ -50,7 +50,8 @@ renamed AS (
         SAFE_CAST(`Lineitem price` AS FLOAT64) AS lineitem_price,
         SAFE_CAST(`Lineitem compare at price` AS FLOAT64) AS lineitem_compare_at_price,
         SAFE_CAST(`Lineitem discount` AS FLOAT64) AS lineitem_discount,
-        
+        SAFE_CAST(`Lineitem fulfillment status` AS STRING) AS lineitem_fulfillment_status,
+
         -- Injected Execution Cost
         0.0 AS execution_cost_gbp
 
