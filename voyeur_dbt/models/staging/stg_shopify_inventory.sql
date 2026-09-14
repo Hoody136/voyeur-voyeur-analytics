@@ -1,6 +1,6 @@
 -- 1. IMPORT CTE
 WITH source AS (
-    SELECT * FROM {{ source('raw_shopify', 'raw_inventory_table') }}
+    SELECT * FROM {{ source('voyeur_raw', 'raw_inventory_table') }}
 ),
 
 -- 2. CLEAN CTE: Enforce standard naming and data types

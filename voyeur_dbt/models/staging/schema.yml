@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_shopify_orders
+    description: "Cleaned and standardized raw Shopify orders. Customer emails are one-way hashed for PII protection."
+    columns:
+      - name: order_id
+        description: "The unique Shopify order name/number."
+        tests:
+          - not_null
+      - name: lineitem_sku
+        description: "The product SKU for this specific line item."
+        tests:
+          - not_null
+
+  - name: stg_shopify_samplesale
+    description: "Cleaned offline sample sale transactions. Formatted to seamlessly union with online orders."
+    columns:
+      - name: order_id
+        description: "The generated sample sale order ID."
+        tests:
+          - not_null
+          
+  - name: stg_dim_date
+    description: "A static 4-4-5 retail calendar for aligning time-series aggregations."
+    columns:
+      - name: date
+        description: "The primary date key."
+        tests:
+          - unique
+          - not_null    <--- (This was not_nulls)

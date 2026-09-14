@@ -1,6 +1,6 @@
 -- 1. IMPORT CTE
 WITH source AS (
-    SELECT * FROM {{ source('raw_shopify', 'dim_date') }}
+    SELECT * FROM {{ source('voyeur_raw', 'dim_date') }}
 ),
 
 -- 2. CLEAN CTE: Applying the Retail 4-4-5 Calendar Logic

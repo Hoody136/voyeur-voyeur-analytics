@@ -1,6 +1,6 @@
 -- 1. IMPORT CTE
 WITH source AS (
-    SELECT * FROM {{ source('raw_shopify', 'raw_samplesale_table') }}
+    SELECT * FROM {{ source('voyeur_raw', 'raw_samplesale_table') }}
 ),
 
 -- 2. CLEAN CTE: Aligning to standard orders + PII Firewall
@@ -9,6 +9,7 @@ renamed AS (
         -- Identifiers: Auto-generate UUID if blank to prevent primary key failures
         COALESCE(SAFE_CAST(`Id` AS STRING), CONCAT('SS-', CAST(GENERATE_UUID() AS STRING))) AS order_id,
         COALESCE(`Name`, CONCAT('SS-', CAST(GENERATE_UUID() AS STRING))) AS order_number,
+        CAST(NULL AS STRING) AS shopify_internal_id,
         
         -- PII FIREWALL: Hashed Customer Identity
         TO_HEX(MD5(LOWER(TRIM(`Email`)))) AS customer_hash_id,

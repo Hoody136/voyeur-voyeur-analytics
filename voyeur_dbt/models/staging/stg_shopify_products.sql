@@ -1,6 +1,6 @@
 -- 1. IMPORT CTE
 WITH source AS (
-    SELECT * FROM {{ source('raw_shopify', 'raw_products_table') }}
+    SELECT * FROM {{ source('voyeur_raw', 'raw_products_table') }}
 ),
 
 -- 2. CLEAN CTE: Enforcing data types for the pricing engine

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: mart_sku_performance
+    description: "The ultimate WSSI and OTB storefront. Joins static product dimensions with live inventory and rolling sales aggregations."
+    columns:
+      - name: vv_sku
+        description: "The master internal Voyeur Voyeur SKU."
+        tests:
+          - unique
+          - not_null

@@ -1,6 +1,6 @@
 -- 1. IMPORT CTE
 WITH source AS (
-    SELECT * FROM {{ source('raw_shopify', 'master_range_sheet') }}
+    SELECT * FROM {{ source('voyeur_raw', 'master_range_sheet') }}
 ),
 
 -- 2. CLEAN CTE: Standardizing column names and enforcing exact data types
