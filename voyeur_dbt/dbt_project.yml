@@ -1,23 +1,23 @@
-name: voyeur_voyeur
+name: 'voyeur_dbt'
+version: '1.0.0'
+config-version: 2
 
-profile: voyeur_voyeur
+profile: 'voyeur_voyeur'
 
-seed-paths: ["seeds"]
 model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
 macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
 clean-targets:
   - "target"
   - "dbt_packages"
 
-seeds:
-  # Builds seeds into '<your_schema_name>_raw'
-  voyeur_voyeur:
-    +schema: raw
-
 models:
-  voyeur_voyeur:
-    +static_analysis: strict
-    # Materialize staging models as views, and marts as tables
+  voyeur_dbt:
     staging:
       +materialized: view
     marts:
